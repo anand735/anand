@@ -1,0 +1,87 @@
+:root
+{
+  --green: green;
+  --black: #130f40;
+  --light-color: #666;
+  --box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+  --border: .2rem solid  rgba(0,0,0.1);
+  --outline: .1rem solid  rgba(0,0,0.1);
+
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 500px;
+  max-width: 100%;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+input, textarea, select 
+{
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid ;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 90%;
+}
+
+button {
+  padding: 12px;
+  background-color: none;
+  font-color: var(--black);
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+}
+
+button:hover  {
+  background-color: var(--green);
+  color: white;
+}
+
+#paymentResponse {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 16px;
+  color: var(--green);
+}
+
+
+.hidden {
+    display: none;
+}

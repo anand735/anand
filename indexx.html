@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Grocery Store - Payment</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <style>
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Payment Details</h2>
+        <form action="https://sheetdb.io/api/v1/ta4gp3rc6f91c" method="post" id="sheetdb-form">
+            <div class="form-group">
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="firstname" placeholder="Enter First Name" required>
+            </div>
+            <div class="form-group">
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" name="lastname" placeholder="Enter Last Name" required>
+            </div>
+            <div class="form-group">
+                <input type="hidden" name="access_key" value="a6aaa6fc-1ef2-410e-810f-f388cde552f7">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="number" placeholder="Enter your phone number">
+            </div>
+            <div class="form-group">
+                <label for="address">Billing Address</label>
+                <textarea id="address" name="address" rows="3" placeholder="Enter your billing address"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="paymentMethod">Select Payment Method</label>
+                <select id="paymentMethod" name="paymentMethod">
+                    <option value="card">Credit/Debit Card</option>
+                    <option value="upi">UPI (Unified Payments Interface)</option>
+                    <option value="netbanking">Net Banking</option>
+                </select>
+            </div>
+            <div id="upiDetails" class="form-group hidden">
+                <label for="upiId">UPI ID</label>
+                <input type="text" id="upiId" name="upiId" placeholder="Enter UPI ID">
+            </div>
+            <div id="netbankingDetails" class="form-group hidden">
+                <label for="bank">Select Bank</label>
+                <select id="bank" name="bank">
+                    <option value="icici">ICICI Bank</option>
+                    <option value="hdfc">HDFC Bank</option>
+                    <option value="axis">Axis Bank</option>
+                </select>
+            </div>
+            <button type="submit">Pay Now</button>
+        </form>
+        <div id="paymentResponse"></div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const paymentMethod = document.getElementById('paymentMethod');
+            const upiDetails = document.getElementById('upiDetails');
+            const netbankingDetails = document.getElementById('netbankingDetails');
+            paymentMethod.addEventListener('change', () => {
+                const selectedMethod = paymentMethod.value;
+                upiDetails.classList.add('hidden');
+                netbankingDetails.classList.add('hidden');
+                if (selectedMethod === 'upi') {
+                    upiDetails.classList.remove('hidden');
+                } else if (selectedMethod === 'netbanking') {
+                    netbankingDetails.classList.remove('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
